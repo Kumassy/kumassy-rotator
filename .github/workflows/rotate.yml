@@ -1,0 +1,16 @@
+name: Rotate
+
+on:
+  schedule:
+    - cron:  '0 09 * * *'
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run
+      run: cargo run --release
