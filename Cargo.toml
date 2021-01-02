@@ -1,0 +1,18 @@
+[package]
+name = "kumassy-rotator"
+version = "0.1.0"
+authors = ["Kumassy"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chrono = "0.4"
+tokio = {version="0.2", features=["full"]}
+egg-mode = "0.15"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+image = "0.23"
+base64 = "0.13"
+anyhow = "1.0"
+envy = "0.4"
