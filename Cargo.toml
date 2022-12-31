@@ -1,18 +1,18 @@
 [package]
 name = "kumassy-rotator"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Kumassy"]
-edition = "2018"
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 chrono = "0.4"
-tokio = {version="0.2", features=["full"]}
-egg-mode = "0.15"
+tokio = {version="1", features=["macros", "process", "rt-multi-thread"]}
+egg-mode = { version="0.16", features=["rustls"], default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-image = "0.23"
-base64 = "0.13"
+image = "0.24"
+base64 = "0.20"
 anyhow = "1.0"
 envy = "0.4"

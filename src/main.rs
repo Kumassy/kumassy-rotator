@@ -1,3 +1,4 @@
+use std::io::Cursor;
 use chrono::prelude::*;
 use tokio::process::Command;
 use egg_mode::{KeyPair, Token, raw::{request_post, response_json, ParamList}, Response};
@@ -38,10 +39,10 @@ async fn upload_image(config: Config, img: String) -> Result<()> {
 
 fn get_base64(path: &str) -> Result<String> {
     let img = image::open(path)?;
-
-    let mut buf = vec![];
+    
+    let mut buf = Cursor::new(vec![]);
     img.write_to(&mut buf, image::ImageOutputFormat::Jpeg(80))?;
-    Ok(base64::encode(&buf))
+    Ok(base64::encode(buf.into_inner()))
 }
 
 async fn convert_image(angle: u32) -> Result<String> {
